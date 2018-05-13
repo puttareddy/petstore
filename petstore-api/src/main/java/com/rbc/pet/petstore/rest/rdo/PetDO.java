@@ -1,7 +1,5 @@
 package com.rbc.pet.petstore.rest.rdo;
 
-import java.io.Serializable;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

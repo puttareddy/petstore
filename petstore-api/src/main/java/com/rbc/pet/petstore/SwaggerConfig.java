@@ -23,8 +23,8 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Spring REST Petstore").description("This is a sample Petstore server.")
-            .contact(new Contact("Puttaiah Arugunta", "https://github.com/puttareddy/angular-boot", "puttareddy.mca@gmail.com"))
+        return new ApiInfoBuilder().title("Full Stack Petstore").description("This is a sample Petstore server.")
+            .contact(new Contact("Puttaiah Arugunta", "https://github.com/puttareddy/petstore", "puttareddy.mca@gmail.com"))
             .license("Apache License Version 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html").version("2.0")
             .build();
     }

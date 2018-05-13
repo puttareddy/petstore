@@ -21,10 +21,13 @@ public class PetStoreService {
     @Autowired
     PetStoreRepository petstoreRepository;
 
+    //TODO: This is just a showcase to decouple the objects between rest layer vs backend layer
     @Autowired
     DozerParser parser;
+    
 
     public List<PetDO> getPetsByName(String name) {
+    	log.info("find pet by name: {}", name);
         return parser.parserListObjectInputToObjectOutput(petstoreRepository.findByName(name), PetDO.class);
     }
 
@@ -33,9 +36,7 @@ public class PetStoreService {
     }
 
     public PetDO create(PetDO petDO) {
-        if (log.isDebugEnabled()) {
-            log.info("Creating a customer");
-        }
+         log.info("Creating a customer");
 
         // This could be used for any transformations
         Pet pet= parser.parseObjectInputToObjectOutput(petDO, Pet.class);

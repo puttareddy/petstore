@@ -1,16 +1,14 @@
 package com.rbc.pet.petstore.backend.model;
 
-import java.io.Serializable;
-
-import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
