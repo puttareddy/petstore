@@ -1,0 +1,12 @@
+<div *ngIf="auth.isAuthenticated()">
+<h3>Top Pets</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let pet of pets" (click)="gotoDetail(pet)" class="col-1-4">
+    <div class="module pet">
+      <h4>{{pet.name}}</h4>
+    </div>
+  </div>
+</div>
+
+</div>
+<app-pet-search></app-pet-search>

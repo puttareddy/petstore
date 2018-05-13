@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: petstore-proxy-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: petstore-api-service
+    servicePort: 80
+  rules:
+  - host: petstore.api.info
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: petstore-api-service
+          servicePort: 80
