@@ -1,5 +1,10 @@
 # Simple Spring Boot Server
 
+## Deploy to Minikube
+Please follow [minikube guide] to deploy this service to Minikube cluster
+
+[minikube guide]: <minikube.md>
+
 ## Development server
 
 Run `mvn spring-boot:run -Dspring.profiles.active=memory` for a dev server.
