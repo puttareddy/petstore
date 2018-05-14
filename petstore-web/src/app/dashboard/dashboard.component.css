@@ -25,7 +25,7 @@ h3 {
 .module {
     padding: 20px;
     text-align: center;
-    color: #eee;
+    color: rgb(182, 169, 169);
     max-height: 120px;
     min-width: 120px;
     background-color: #607D8B;
@@ -57,4 +57,16 @@ h4 {
     .module {
         min-width: 60px;
     }
+}
+
+.column1 {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row1:after {
+    content: "";
+    display: table;
+    clear: both;
 }

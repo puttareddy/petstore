@@ -10,5 +10,5 @@ export class AppComponent {
   constructor(public auth: AuthService) {
     auth.handleAuthentication();
   }
-  title = 'Pet Store Angular App';
+  title = 'Pet Store App';
 }

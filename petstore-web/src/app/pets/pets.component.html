@@ -17,7 +17,7 @@
     <span class="badge">{{pet.id}}</span>
     <span>{{pet.name}}</span>
     <button *ngIf="auth.isAuthenticated()" class="delete" (click)="delete(pet); $event.stopPropagation()">x</button>
-    </li>
+  </li>
 </ul>
 
 

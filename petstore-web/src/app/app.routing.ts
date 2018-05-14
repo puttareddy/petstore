@@ -10,12 +10,11 @@ import {HomeComponent} from './home/home.component'
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
+    component: DashboardComponent    
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: DashboardComponent
   },
   {
     path: 'callback',
