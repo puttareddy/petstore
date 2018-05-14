@@ -52,3 +52,15 @@ button.delete {
     background-color: gray !important;
     color:white;
 }
+
+.column1 {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row1:after {
+    content: "";
+    display: table;
+    clear: both;
+}

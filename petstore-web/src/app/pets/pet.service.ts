@@ -56,7 +56,7 @@ export class PetService {
   }
 
   update(pet: Pet): Observable<Pet> {
-    return this.http.put<Pet>(this.baseUrl, pet, {
+    return this.http.patch<Pet>(this.baseUrl, pet, {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
       .set('Accept', 'application/json')
       .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
