@@ -6,13 +6,17 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Example;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.rbc.pet.petstore.backend.model.Pet;
 
-// @RunWith(SpringRunner.class)
-// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class PetStoreRepositoryTest {
 
     @Autowired
@@ -31,19 +35,19 @@ public class PetStoreRepositoryTest {
         tiagoLeandro = repository.save(new Pet(Long.valueOf(4), "tiago leandro"));
     }
 
-    // @Test
+    @Test
     public void setsIdOnSave() {
         Pet diego = repository.save(new Pet(Long.valueOf(1), "diego"));
         assertThat(diego.getId()).isNotNull();
     }
 
-    // @Test
+    @Test
     public void findsByName() {
         List<Pet> result = repository.findByName("tiago");
         assertThat(result).hasSize(1).extracting("name").contains("tiago");
     }
 
-    // @Test
+    @Test
     public void findsByExample() {
         // Given
         Pet probe = new Pet(null, "tiago");
