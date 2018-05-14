@@ -40,7 +40,7 @@ Here are the various OAuth roles involved in this solution:
 
 Here is the deployment view at a high level. Please note, this is logical deployment view of the minikube kubernetes cluster. Not specified internals of the kubernetes like service-discovery, config mngt, kube-dns, kube-sidecar etc.,
 
-![picture alt](./deployment-flow.jpeg)
+![picture alt](./deployment-flow1.jpeg)
 
 ## Improvements
 
