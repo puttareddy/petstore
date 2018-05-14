@@ -1,7 +1,7 @@
 # A Full Stack application 
 
 ## Why
-To demonstrate the current trending technologies with microservices implemenations. Also, to prove, each technology has very differnt role to play  and can be replaced with it's competetors easily.
+To demonstrate the current trending technologies with microservices implemenations. Also, based on S.O.L.I.D principles, to prove each technology has very differnt role to play and can be replaced with it's competetors easily.
 
 ## What
 
