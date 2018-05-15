@@ -15,7 +15,7 @@ public class DozerParser {
         return parser(destinationObject, originalObject);
     }
 
-    public <O, D> List<D> parserListObjectInputToObjectOutput(List<O> originalObjects, Class<D> destinationObject) {
+    public <O, D> List<D> parserListObjectInputToObjectOutput(java.lang.Iterable<O> originalObjects, Class<D> destinationObject) {
         List<D> destinationObjects = new ArrayList<D>();
         for (Object originalObject : originalObjects) {
             destinationObjects.add(parser(destinationObject, originalObject));

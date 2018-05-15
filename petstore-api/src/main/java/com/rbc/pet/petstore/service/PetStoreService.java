@@ -21,13 +21,12 @@ public class PetStoreService {
     @Autowired
     PetStoreRepository petstoreRepository;
 
-    //TODO: This is just a showcase to decouple the objects between rest layer vs backend layer
+    // TODO: This is just a showcase to decouple the objects between rest layer vs backend layer
     @Autowired
     DozerParser parser;
-    
 
     public List<PetDO> getPetsByName(String name) {
-    	log.info("find pet by name: {}", name);
+        log.info("find pet by name: {}", name);
         return parser.parserListObjectInputToObjectOutput(petstoreRepository.findByName(name), PetDO.class);
     }
 
@@ -36,16 +35,16 @@ public class PetStoreService {
     }
 
     public PetDO create(PetDO petDO) {
-         log.info("Creating a customer");
+        log.info("Creating a customer");
 
         // This could be used for any transformations
-        Pet pet= parser.parseObjectInputToObjectOutput(petDO, Pet.class);
-        if (pet.getId() == null){
-        	//TODO: This should be created with Autogenereated numbers. For now, it is coded like
-        	//this as Mongo doesn't support autogeneration like JPA
-        	pet.setId(Long.valueOf(new Random().ints(10,(100+1)).findFirst().getAsInt()));
+        Pet pet = parser.parseObjectInputToObjectOutput(petDO, Pet.class);
+        if (pet.getId() == null) {
+            // TODO: This should be created with Autogenereated numbers. For now, it is coded like
+            // this as Mongo doesn't support autogeneration like JPA
+            pet.setId(Long.valueOf(new Random().ints(10, (100 + 1)).findFirst().getAsInt()));
         }
-        pet = petstoreRepository.insert(pet);
+        pet = petstoreRepository.save(pet);
         return parser.parseObjectInputToObjectOutput(pet, PetDO.class);
     }
 
