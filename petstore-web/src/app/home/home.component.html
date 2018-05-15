@@ -1,0 +1,11 @@
+<h4 *ngIf="auth.isAuthenticated()">
+  You are logged in!
+  <div class="container-fluid">    
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="/pets" routerLinkActive="active">Pets</a>
+      </div>      
+  <app-messages></app-messages>
+</h4>
+<h4 *ngIf="!auth.isAuthenticated()">
+  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>

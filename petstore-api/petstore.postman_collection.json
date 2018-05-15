@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "015545fe-ec38-49d6-90c6-301ce22c49a7",
+		"name": "petstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a Pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62be834b-20cf-4670-8c6c-43dded40dd6b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Pet inserted\"] = jsonData.name === \"PostMan Pet\";",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0ab31e06-3342-42b8-87fc-39439b35421c",
+						"type": "text/javascript",
+						"exec": [
+							"var default_body = {",
+							"    \"name\" : \"PostMan Pet\"",
+							"};",
+							"",
+							"postman.setEnvironmentVariable(\"default_body\", JSON.stringify(default_body) );",
+							"",
+							"var body = JSON.parse(postman.getEnvironmentVariable(\"default_body\"));",
+							"postman.setEnvironmentVariable(\"body\", JSON.stringify(body));"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{{body}}"
+				},
+				"url": {
+					"raw": "{{host}}/api/pet",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all pets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3c12b9e-9d18-486c-bd29-fc04076b83d3",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"empty data\"] = jsonData === 3",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/pet",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a Pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a054ddf-93bb-4ae5-8339-bc85e6ec06c2",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/pet/10",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a Pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6dcf3382-9ab0-4dfc-bad8-023bf13de946",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"empty data\"] = jsonData === 1"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6cd9b484-58c0-4c65-a923-66d00b460689",
+						"type": "text/javascript",
+						"exec": [
+							"var default_body = {",
+							"    \"id\":10,",
+							"    \"name\" : \"PostMan Pet\"",
+							"};",
+							"",
+							"postman.setEnvironmentVariable(\"default_body\", JSON.stringify(default_body) );",
+							"",
+							"var body = JSON.parse(postman.getEnvironmentVariable(\"default_body\"));",
+							"postman.setEnvironmentVariable(\"body\", JSON.stringify(body));"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{{body}}"
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "231d5122-061f-4573-b756-9d0cf1bd0b98",
+			"key": "host",
+			"value": "http://localhost:8080/",
+			"type": "string",
+			"description": ""
+		}
+	]
+}

@@ -1,0 +1,12 @@
+<div id="search-component" *ngIf="auth.isAuthenticated()">       
+    <h2>Pet Search</h2>
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
+    <ul class="search-result">
+      <li *ngFor="let pet of pets$ | async">
+        <a routerLink="/detail/{{pet.id}}">
+          {{pet.name}}
+        </a>
+      </li>
+    </ul>  
+</div>
+  

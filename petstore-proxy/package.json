@@ -1,0 +1,17 @@
+{
+  "name": "petstore-proxy",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_PORT=80 node app"
+  },
+  "private": true,
+  "dependencies": {
+    "cors": "^2.7.0",
+    "express": "^4.1.0",
+    "express-http-proxy": "^1.2.0",
+    "express-jwt": "^5.2.0",
+    "jwks-rsa": "^1.2.1"
+  },
+  "devDependencies": {}
+}

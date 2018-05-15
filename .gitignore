@@ -1,0 +1,17 @@
+
+*.log
+.DS_Store
+npm-debug.log*
+coverage/
+tests/report.txt
+.nyc_output/
+
+# IDE files
+.idea
+*.iml
+*.ipr
+*.iws
+.vscode
+
+# Dependency directories
+node_modules/

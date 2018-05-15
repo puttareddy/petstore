@@ -1,0 +1,29 @@
+<h2>All Pets</h2>
+
+<div *ngIf="auth.isAuthenticated()">
+  <label>Pet name:</label> <input #petName/>
+  <button (click)="add(petName.value); petName.value=''">Add</button>
+</div>
+
+
+<div class="row1">
+  <div class="column1">
+    <ul class="pets">
+      <li *ngFor="let pet of pets" [class.selected]="pet === selectedPet" (click)="onSelect(pet)">
+        <span class="badge">{{pet.id}}</span>
+        <span>{{pet.name}}</span>
+        <button *ngIf="auth.isAuthenticated()" class="delete" (click)="delete(pet); $event.stopPropagation()">x</button>        
+      </li>
+    </ul>  
+  </div>
+  <div class="column1">  
+    <div *ngIf="selectedPet">
+        <p>
+          {{selectedPet.name | uppercase}} is selected
+        </p>
+        <button (click)="gotoDetail()">View Details</button>
+    </div>
+  </div>
+</div>
+
+
