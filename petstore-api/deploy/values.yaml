@@ -21,7 +21,7 @@ configuration:
     configPath: "/etc/config/"
     properties:
         application.properties: |   
-          spring.data.mongodb.uri: mongodb://example:example@ds053312.mongolab.com:53312/todolist
+          #spring.data.mongodb.uri: mongodb://example:example@ds053312.mongolab.com:53312/todolist
 
 layer: "FE"
 
