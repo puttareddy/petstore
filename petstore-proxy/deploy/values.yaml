@@ -14,7 +14,8 @@ service:
   externalPort: 80
   internalPort: 80
 
-repoName: petstore-proxy
+#monitoring tool will use this to check app health
+healthEndpoint: "/proxy/health"
 
 configuration:
   variables:

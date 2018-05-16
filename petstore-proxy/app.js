@@ -31,6 +31,10 @@ app.use(function (req, res, next) {
       // Pass to next layer of middleware
       next();
   });
+  
+app.get('/proxy/health', require('express-healthcheck')(), (req,res)=>{
+  res.send(200);
+});
 
 var jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
@@ -50,6 +54,7 @@ var jwtCheck = jwt({
 });
 */
 //app.use(jwtCheck);
+
 
 app.use( jwtCheck, proxy(proxy_api, {
   proxyReqPathResolver: function(req) {
