@@ -7,8 +7,8 @@ The current solution includes OAuth 2.0 authorization framework (Implict Grant) 
 
 Here are the various OAuth roles involved in this solution:
 
-* Resouce Owner/Server: (petstore-proxy)
-    * the server hosting the protected resources. This is the API you want to access.
+* Resouce Owner: (end user)
+    * the Owner who owns the credentials.
     * the entity that can grant access to a protected resource. Typically this is the end-user.
          
 * SPA Client: (petstore-web)
@@ -17,8 +17,8 @@ Here are the various OAuth roles involved in this solution:
 * Authorization Server: (Auth0)
     * the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
    
-* Resource API: (Petstore-api)
-    * the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
+* Resource Server/API: (Petstore-api + petstore-proxy)
+    * the server that authenticates the Resource Owner, and grants access to APIs to perfrom specific actions. Useually, CRUD operations after Authorization.
 
 ## Request Flow ##
 
@@ -42,7 +42,3 @@ Here is the deployment view at a high level. Please note, this is logical deploy
 
 ![picture alt](./deployment-flow1.jpeg)
 
-## Improvements
-
-1. Replace the petstore-proxy with any API Gateway solutions like KONG, Apigee etc.,
-2. Can refactor the petstore-api (Spring Boot) application with multiple modules instead of single application
