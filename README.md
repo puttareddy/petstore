@@ -11,9 +11,9 @@ Kubernets Orchestration platform
 Helm charts to deploy the solution
 
 ## How
-Read [Solution Section] for more details. Also, follow README.md for each specific module to know more and make your hands dirty.
+Read [Solution Section] for more details. Also, follow READMEs.md for each specific module to know more and make your hands dirty.
 
-[Solution Section]: <solution/solution.md>
+[Solution Section]: <solution/README.md>
 
 ## Next
 
