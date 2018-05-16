@@ -17,7 +17,10 @@ Read [Solution Section] for more details. Also, follow README.md for each specif
 
 ## Next
 
-1. Replace the petstore-proxy with any API Gateway solutions like KONG, Apigee etc.,
-2. Can refactor the petstore-api (Spring Boot) application with multiple modules instead of single application
+1. Check the Liveliness probe of each POD with health check, after deploy
+2. Replace the petstore-proxy with any API Gateway solutions like KONG, Apigee etc.,
+3. Create a Jenkins pipeline to deploy the services, instead of manual make command
+4. Can refactor the petstore-api (Spring Boot) application with multiple modules instead of single application
+
 
 
