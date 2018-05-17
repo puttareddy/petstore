@@ -14,7 +14,8 @@ service:
   externalPort: 80
   internalPort: 8080
 
-repoName: petstore-api
+#monitoring tool will use this to check app health
+healthEndpoint: "/health"
 
 configuration:  
   propertiesFiles:
@@ -22,6 +23,7 @@ configuration:
     properties:
         application.properties: |   
           #spring.data.mongodb.uri: mongodb://example:example@ds053312.mongolab.com:53312/todolist
+          endpoints.actuator.enabled: true
 
 layer: "FE"
 

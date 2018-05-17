@@ -64,7 +64,11 @@ spec:
           resources:
 {{ toYaml .Values.resources | indent 12 }}
           {{end}}
-         
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.healthEndpoint }}
+              port: {{ .Values.service.internalPort }}
+            initialDelaySeconds: 30 
       volumes:
       {{if .Values.configuration}}
         {{if .Values.configuration.pvcs}}
