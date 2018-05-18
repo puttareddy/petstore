@@ -36,6 +36,10 @@ app.get('/proxy/health', require('express-healthcheck')(), (req,res)=>{
   res.send(200);
 });
 
+app.get('/favicon.ico', require('express-healthcheck')(), (req,res)=>{
+  res.send(200);
+});
+
 var jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
       cache: true,
