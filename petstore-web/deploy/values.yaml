@@ -15,9 +15,14 @@ service:
   externalPort: 80
   internalPort: 80
 
-repoName: "petstore-web"
-
 layer: "FE"
+
+configuration:
+  variables:
+    CLIENT_ID: asDe6Ro5hBb2zZxB83AKR2K16ooLUXLC
+    DOMAIN: puttareddy.auth0.com
+    APP_URL: http://petstore.abc.com
+    API_URL: http://petstore.abc.com/api
 
 ingress:
   enabled: true
@@ -26,7 +31,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - petstore.abc.local
+    - petstore.abc.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
