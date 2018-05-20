@@ -1,6 +1,6 @@
-let apiUrl = process.env.API_URL || 'http://localhost:3002';
+import { config } from '../../config';
 
 export const environment = {
   production: false,
-  api_url: apiUrl
+  api_url: config.apiUrl
 };
