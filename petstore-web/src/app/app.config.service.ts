@@ -1,22 +1,30 @@
 import {Injectable} from '@angular/core';
-import {HttpHeaders, HttpClient} from '@angular/common/http';
+import { Http, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
+import {IAppConfig} from './app.config.model'
+
+//import { environment } from '../environments/environment';
 //https://stackoverflow.com/questions/49475002/use-server-environment-variable-on-image
+//https://blogs.msdn.microsoft.com/premier_developer/2018/03/01/angular-how-to-editable-config-files/
+
 @Injectable()
 export class AppConfigService{
 
-    constructor(private http: HttpClient) {
-         var obj;
-         this.getJSON().subscribe(data => obj=data, error => console.log(error));
-    }
+  static settings: IAppConfig;
 
-    public getJSON(): Observable<any> {
-         return this.http.get("/assets/config.json")
-                         .map((res:any) => res.json())
-                         .catch((error:any) => {
-                           console.log('error loading file happend'+error);
-                           return error;
-                         });
+  constructor(private http: Http) {}
 
-     }
+  load() {
+        console.log('>>>>>>>>>>>>> loading started<<<<<<<<<<<<');
+        //const jsonFile = `assets/config/config.${environment.name}.json`;
+        const jsonFile = '../assets/config.json';
+        return new Promise<void>((resolve, reject) => {
+          this.http.get(jsonFile).toPromise().then((response : Response) => {
+            AppConfigService.settings = <IAppConfig>response.json();
+             resolve();
+          }).catch((response: any) => {
+             reject(`Could not load file '${jsonFile}': ${JSON.stringify(response)}`);
+          });
+      });
+    } 
 }

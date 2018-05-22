@@ -7,19 +7,18 @@ import {catchError, tap} from 'rxjs/operators';
 
 import {MessageService} from '../messages/message.service';
 import {Pet} from '../pet';
-import {environment} from '../../environments/environment';
+import { AppConfigService } from '../app.config.service';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
   .set('Accept', 'application/json')
-  .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
-  
+  .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)  
 };
 
 @Injectable()
 export class PetService {
 
-  private baseUrl = environment.api_url + '/api/pet';  // URL to web API
+  private baseUrl = AppConfigService.settings.apiUrl + '/api/pet';  // URL to web API
 
   constructor(private http: HttpClient, private messageService: MessageService) {
   }

@@ -3,12 +3,12 @@ import {HttpHeaders, HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
 import {Pet} from '../pet';
-import {environment} from '../../environments/environment';
+import { AppConfigService } from '../app.config.service';
 
 @Injectable()
 export class PetSearchService {
 
-  private baseUrl = environment.api_url + '/api/pet';
+  private baseUrl = AppConfigService.settings.apiUrl + '/api/pet';
 
   constructor(private http: HttpClient) {
   }

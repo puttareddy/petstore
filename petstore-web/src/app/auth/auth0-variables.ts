@@ -1,4 +1,4 @@
-import { config } from '../../../config';
+import { AppConfigService } from '../app.config.service';
 
 interface AuthConfig {
   clientID: string;
@@ -7,7 +7,7 @@ interface AuthConfig {
 }
 
 export const AUTH_CONFIG: AuthConfig = {
-  clientID: config.clientID,
-  domain: config.domain,
-  callbackURL: `${config.appUrl}/callback`
+  clientID: AppConfigService.settings.clientID,
+  domain: AppConfigService.settings.domain,
+  callbackURL: `${AppConfigService.settings.appUrl}/callback`
 };
