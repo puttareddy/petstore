@@ -7,6 +7,8 @@ var proxy = require('express-http-proxy');
 var auth0Settings = require('./auth0.json');
 var app = express();
 var proxy_api = process.env.API_SERVER || 'http://localhost:8080'
+let issuer = process.env.AUTH0_ISSUER || 'https://puttareddy.auth0.com/'
+let audience = process.env.AUTH0_AUDIENCE || 'https://pet.puttareddy.com/'
 
 console.log('>>>>>>>>>porxy url>>>>>>>>>>>>>: ', proxy_api);
 
@@ -45,10 +47,10 @@ var jwtCheck = jwt({
       cache: true,
       rateLimit: true,
       jwksRequestsPerMinute: 5,
-      jwksUri: "https://puttareddy.auth0.com/.well-known/jwks.json"
+      jwksUri: `${issuer}.well-known/jwks.json`
   }),
-  audience: 'https://pet.puttareddy.com/',
-  issuer: "https://puttareddy.auth0.com/",
+  audience: audience,
+  issuer: `${issuer}`,
   algorithms: ['RS256']
 });
 

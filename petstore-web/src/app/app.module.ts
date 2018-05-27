@@ -19,6 +19,14 @@ import {MessagesComponent} from './messages/messages.component';
 import {HomeComponent} from './home/home.component';
 import {CallbackComponent} from './callback/callback.component';
 
+import { APP_INITIALIZER } from '@angular/core';
+import { AppConfigService } from './app.config.service';
+
+
+export function initializeApp(appConfig: AppConfigService) {
+  return () => appConfig.load();
+}
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -36,7 +44,11 @@ import {CallbackComponent} from './callback/callback.component';
     HomeComponent,
     CallbackComponent
   ],
-  providers: [HttpClientModule, MessageService, PetService, AuthService],
+  providers: [
+    AppConfigService,
+    { provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [AppConfigService], multi: true },HttpClientModule, MessageService, PetService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

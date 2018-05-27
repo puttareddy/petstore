@@ -9,7 +9,7 @@ spec:
     serviceName: petstore-web-service
     servicePort: 80
   rules:
-  - host: petstore.web.info
+  - host: petstore.abc.com
     http:
       paths:
       - path: /

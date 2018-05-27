@@ -9,10 +9,10 @@ spec:
     serviceName: petstore-api-service
     servicePort: 80
   rules:
-  - host: petstore.api.info
+  - host: petstore.abc.com
     http:
       paths:
-      - path: /
+      - path: /api
         backend:
           serviceName: petstore-api-service
           servicePort: 80

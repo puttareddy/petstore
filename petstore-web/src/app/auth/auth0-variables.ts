@@ -1,3 +1,5 @@
+import { AppConfigService } from '../app.config.service';
+
 interface AuthConfig {
   clientID: string;
   domain: string;
@@ -5,7 +7,7 @@ interface AuthConfig {
 }
 
 export const AUTH_CONFIG: AuthConfig = {
-  clientID: 'asDe6Ro5hBb2zZxB83AKR2K16ooLUXLC',
-  domain: 'puttareddy.auth0.com',
-  callbackURL: 'http://petstore.web.info/callback'
+  clientID: AppConfigService.settings.clientID,
+  domain: AppConfigService.settings.domain,
+  callbackURL: `${AppConfigService.settings.appUrl}/callback`
 };

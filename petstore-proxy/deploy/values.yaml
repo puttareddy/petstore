@@ -21,7 +21,9 @@ configuration:
   variables:
     NODE_ENV: dev
     LOG_LEVEL: debug
-    API_SERVER: http://petstore-api-service    
+    API_SERVER: http://petstore-api-service
+    AUTH0_ISSUER: https://puttareddy.auth0.com/
+    AUTH0_AUDIENCE: https://pet.puttareddy.com/
 
 layer: "FE"
 
