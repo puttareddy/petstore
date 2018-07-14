@@ -17,7 +17,7 @@ helm-reset:
 deploy:
 	# minikube step
 	eval $(minikube docker-env);
-	mvn clean package
+	# mvn clean package
 	# build image
 	docker build -t $(REPO):$(TIMESTAMP) .
 	# deploy to kubernetes (minikube)
